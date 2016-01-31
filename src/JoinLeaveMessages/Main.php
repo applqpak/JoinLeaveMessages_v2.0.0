@@ -99,6 +99,36 @@
 
       }
 
+      if(strtolower($cmd->getName()) === "setleavemessage") {
+
+        if(!(isset($args[0]))) {
+
+          $sender->sendMessage(TF::RED . "Error: not enough args. Usage: /setleavemessage < message >");
+
+          return true;
+
+        } else {
+
+          chdir($this->getDataFolder());
+
+          $data = file_get_contents("config.yml");
+
+          $file_array = json_decode($data, true);
+
+          $old_leave_message = $file_array["quit-message:"];
+
+          $new_leave_message = implode(" ", $args);
+
+          $update_message = str_replace($old_leave_message, $new_leave_message, file_get_contents("config.yml"));
+
+          file_put_contents("config.yml", $update_message);
+
+          return true;
+
+        }
+
+      }
+
     }
     
   }
