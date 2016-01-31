@@ -64,6 +64,42 @@
       $event->setQuitMessage(str_replace("{player}", $event->getPlayer()->getDisplayName(), $quit_message));
       
     }
+
+    public function onCommand(CommandSender $sender, Command $cmd, $label, array $args) {
+
+      if(strtolower($cmd->getName()) === "setjoinmessage") {
+
+        if(!(isset($args[0]))) {
+
+          $sender->sendMessage(TF::RED . "Error: not enough args. Usage: /setjoinmessage < message >");
+
+          return true;
+
+        } else {
+
+          chdir($this->getDataFolder());
+
+          $data = file_get_contents("config.yml");
+
+          $file_array = json_decode($data, true);
+
+          $old_join_message = $file_array["join-message:"];
+
+          $new_join_message = implode(" ", $args);
+
+          $update_message = str_replace($old_join_message, $new_join_message, file_get_contents("config.yml"));
+
+          file_put_contents("config.yml", $update_message);
+
+          $sender->sendMessage(TF::GREEN . "Join Message Was Successfully Updated!");
+
+          return true;
+
+        }
+
+      }
+
+    }
     
   }
   
