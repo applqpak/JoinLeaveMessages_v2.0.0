@@ -123,6 +123,8 @@
 
           file_put_contents("config.yml", $update_message);
 
+          $sender->sendMessage(TF::GREEN . "Leave Message Was Successfully Updated!
+
           return true;
 
         }
