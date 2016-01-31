@@ -1,4 +1,5 @@
 <?php
+
   namespace JoinLeaveMessages;
   
   use pocketmine\plugin\PluginBase;
@@ -6,6 +7,8 @@
   use pocketmine\utils\TextFormat as TF;
   use pocketmine\event\player\PlayerJoinEvent;
   use pocketmine\event\player\PlayerQuitEvent;
+  use pocketmine\command\Command;
+  use pocketmine\command\CommandSender;
   
   class Main extends PluginBase implements Listener {
   
