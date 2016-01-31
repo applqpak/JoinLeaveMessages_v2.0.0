@@ -1,0 +1,19 @@
+name: JoinLeaveMessages
+version: 1.0.0
+author: applqpak
+api: [1.0.0]
+main: JoinLeaveMessages\Main
+commands:
+  setjoinmessage:
+    description: Set Custom Join Message.
+    usage: /setjoinmessage < message >
+    permission: setjoinmessage.command
+  setleavemessage:
+    description: Set Custom Leave Message.
+    usage: /setleavemessage < message >
+    permission: setleavemessage.commamd
+permissions:
+  setjoinmessage.command:
+    default: op
+  setleavemessage.command:
+    default: op
